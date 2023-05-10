@@ -2,10 +2,10 @@
   "name": "proba-parcel",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://Alekhandro24.github.io/parcel-template/",
+  "homepage": "https://Alekhandro24.github.io/javascript-small-projects/",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/*.html --public-url /parcel-template/"
+    "build": "parcel build src/*.html --public-url /javascript-small-projects/"
   },
   "repository": {
     "type": "git",
