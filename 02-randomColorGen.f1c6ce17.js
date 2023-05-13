@@ -1,0 +1,2 @@
+const bntEl=document.querySelector(".button");console.log(bntEl);const bodyEl=document.querySelector("body"),colors=["green","blue","yellow","azur","violet","red","orange"];function addColor(){const o=parseInt(Math.random()*colors.length);bodyEl.style.background=colors[o]}bodyEl.style.background="pink",bntEl.addEventListener("click",addColor);
+//# sourceMappingURL=02-randomColorGen.f1c6ce17.js.map

@@ -1,0 +1,2 @@
+const btnEl=document.querySelector(".btn"),inputEl=document.querySelector("input"),messageEl=document.querySelector(".message"),errorEl=document.querySelector(".error");function displayMessage(){inputEl.value?(messageEl.textContent=inputEl.value,inputEl.value=""):(errorEl.style.display="block",setInterval((()=>{errorEl.style.display="none"}),1e4))}btnEl.addEventListener("click",displayMessage);
+//# sourceMappingURL=01-lastMessage.1cfb7b5c.js.map
