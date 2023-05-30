@@ -1,0 +1,2 @@
+const imageContainerEl=document.querySelector(".image-container"),prevEl=document.querySelector(".prev"),nextEl=document.querySelector(".next");let x=0,timer=0;function updateContainer(){imageContainerEl.style.transform=`perspective(1000px) rotateY(${x}deg)`,timer=setTimeout((()=>{x-=45,updateContainer()}),2e3)}prevEl.addEventListener("click",(()=>{x+=45,clearTimeout(timer),updateContainer()})),nextEl.addEventListener("click",(()=>{x-=45,clearTimeout(timer),updateContainer()})),updateContainer();
+//# sourceMappingURL=08-rotatingImgGallery.3b8212ce.js.map
