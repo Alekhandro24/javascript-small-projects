@@ -56,3 +56,12 @@ starsEl[4].addEventListener('click', () => {
   emojisEl.style.transform = 'translateX(-180px)';
   ratingNamesEl.style.transform = 'translateY(-80px)';
 });
+
+let docTitle = document.title;
+window.addEventListener('blur', () => {
+  document.title = 'come Back ;(';
+});
+
+window.addEventListener('focus', () => {
+  document.title = docTitle;
+});
