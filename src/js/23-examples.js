@@ -293,16 +293,101 @@ const eve = new Person('Eve', 18);
 // console.log(Person3.compareAges(alil, lea));
 
 //----12
-class Vehicle {
-  hasEngine = true;
-}
+// class Vehicle {
+//   hasEngine = true;
+// }
 
-class Bus extends Vehicle {}
+// class Bus extends Vehicle {}
 
-class Boat extends Vehicle {}
+// class Boat extends Vehicle {}
 
-const a = new Bus();
-console.log('a.hasEngine', a.hasEngine);
+// const a = new Bus();
+// console.log('a.hasEngine', a.hasEngine);
 
-const b = new Boat();
-console.log('b.hasEngine', b.hasEngine);
+// const b = new Boat();
+// console.log('b.hasEngine', b.hasEngine);
+
+//----13
+// const p1 = new Promise(function () {
+//   //pending
+//   //fulfilled
+//   //rejected
+// });
+// console.log('p1', p1);
+
+// const p2 = new Promise((resolve, reject) => {
+//   fetch('https://api.itgid.info/api/delay')
+//     .then(res => {
+//       // console.log('res', res);
+//       if (res.ok) resolve(res.json());
+//       else reject(res);
+//     })
+//     .catch(error => reject(error));
+// });
+// console.log('p2', p2);
+
+// p2.then(f1, f2);
+
+// function f1(data) {
+//   console.log('p2', p2);
+//   console.log('success');
+//   console.log('data', data);
+// }
+// function f2() {
+//   console.log('p2', p2);
+//   console.log('problem');
+//   console.log('data', data);
+// }
+
+// console.log('p2', p2);
+// console.log('======');
+
+//////////////
+// const f = fetch('https://api.itgid.info/api/test');
+// console.log('f', f);
+// f.then(res => res.json()).then(data => console.log('data', data));
+
+// fetch('https://api.itgid.info/api/delay')
+//   .then(res => {
+//     // console.log('res', res);
+//     return res.json();
+//   })
+//   .then(data => {
+//     console.log('data', data);
+//     return fetch('https://api.itgid.info/api/test');
+//   })
+//   .then(res => res.json())
+//   .then(data => console.log('data', data));
+
+//////////////
+// const API_KEY = '6b76ab7dc1d4a505';
+// const requestHeaders = new Headers();
+// requestHeaders.append('apikey', API_KEY);
+
+// fetch('https://api.itgid.info/api/27/random/random-number?min=1&max=10', {
+//   headers: requestHeaders,
+// })
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log('res.data', data);
+//     return fetch(
+//       'https://api.itgid.info/api/27/employee/read/' +
+//         data[('random-number', { headers: requestHeaders })]
+//     );
+//   })
+//   .then(res => res.json())
+//   .then(data => console.log('data', data));
+
+//PromiseAll
+
+// const promise_3 = new Promise((resolve, reject) => {
+//   fetch('https://api.itgid.info/api/test').then(data => resolve(data.json()));
+// });
+
+// const promise_4 = new Promise((resolve, reject) => {
+//   fetch('https://api.itgid.info/api/delay').then(data => resolve(data.json()));
+// });
+
+// Promise.all([promise_3, promise_4]).then(data => {
+//   console.log('data', data);
+// });
