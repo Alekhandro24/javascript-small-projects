@@ -307,7 +307,7 @@ const eve = new Person('Eve', 18);
 // const b = new Boat();
 // console.log('b.hasEngine', b.hasEngine);
 
-//----13
+//-------------13
 // const p1 = new Promise(function () {
 //   //pending
 //   //fulfilled
@@ -391,3 +391,29 @@ const eve = new Person('Eve', 18);
 // Promise.all([promise_3, promise_4]).then(data => {
 //   console.log('data', data);
 // });
+
+//-----------14. Fetch countries
+
+fetch('https://restcountries.com/v3.1/all')
+  .then(res => res.json())
+  .then(data => showInfo(data));
+
+function showInfo(countries) {
+  countries.sort((country1, country2) => {
+    country1 = country1.name.common;
+    country2 = country2.name.common;
+    if (country1 < country2) {
+      return -1;
+    } else if (country1 > country2) {
+      return 1;
+    }
+    return 0;
+  });
+  for (let i = 0; i < 10; i++) {
+    console.log('country', countries[i].name.common);
+  }
+}
+
+const b = [4, 5, 8, 9, 6, 3, 2];
+b.sort((a, b) => a - b);
+console.log('b', b);
