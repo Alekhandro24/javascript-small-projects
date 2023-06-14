@@ -1,0 +1,2 @@
+class Person{constructor(o,n){this.name=o,this.age=n}}const adam=new Person("Adam",15),eve=new Person("Eve",18);function showInfo(o){o.sort(((o,n)=>(o=o.name.common)<(n=n.name.common)?-1:o>n?1:0));for(let n=0;n<10;n++)console.log("country",o[n].name.common)}fetch("https://restcountries.com/v3.1/all").then((o=>o.json())).then((o=>showInfo(o)));const b=[4,5,8,9,6,3,2];b.sort(((o,n)=>o-n)),console.log("b",b);
+//# sourceMappingURL=23-examples.ee580343.js.map
