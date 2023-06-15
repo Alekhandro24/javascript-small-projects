@@ -483,13 +483,47 @@ const eve = new Person('Eve', 18);
 
 //-----------20 How To Solve This Apple Coding Interview Question With Recursion
 
-const str = 'hello';
+// const str = 'hello';
 
-function solution(str) {
-  //base case
-  if (str.length === 0) return '';
+// function solution(str) {
+//   //base case
+//   if (str.length === 0) return '';
 
-  //recursion
-  return str[str.length - 1] + solution(str.slice(0, str.length - 1));
+//   //recursion
+//   return str[str.length - 1] + solution(str.slice(0, str.length - 1));
+// }
+// console.log(solution(str));
+
+//-----------21
+let species = ['Animals', 'Vegetables'];
+let animals = ['Lion', 'Cow', 'Horse', 'Turtle'];
+let vegetables = ['Cucumber', 'Pukin', 'Potato', 'Tomato'];
+
+let slct1 = document.getElementById('slct1');
+let slct2 = document.getElementById('slct2');
+
+species.forEach(function addSpecies(item) {
+  let option = document.createElement('option');
+  option.text = item;
+  option.value = item;
+  slct1.appendChild(option);
+});
+
+slct1.onchange = function () {
+  slct2.innerHTML = '<option></option>';
+  if (this.value === 'Animals') {
+    addToSlct2(animals);
+  }
+  if (this.value === 'Vegetables') {
+    addToSlct2(vegetables);
+  }
+};
+
+function addToSlct2(arr) {
+  arr.forEach(function (item) {
+    let option = document.createElement('option');
+    option.text = item;
+    option.text = item;
+    slct2.appendChild(option);
+  });
 }
-console.log(solution(str));
