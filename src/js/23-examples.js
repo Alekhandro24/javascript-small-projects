@@ -394,26 +394,102 @@ const eve = new Person('Eve', 18);
 
 //-----------14. Fetch countries
 
-fetch('https://restcountries.com/v3.1/all')
-  .then(res => res.json())
-  .then(data => showInfo(data));
+// fetch('https://restcountries.com/v3.1/all')
+//   .then(res => res.json())
+//   .then(data => showInfo(data));
 
-function showInfo(countries) {
-  countries.sort((country1, country2) => {
-    country1 = country1.name.common;
-    country2 = country2.name.common;
-    if (country1 < country2) {
-      return -1;
-    } else if (country1 > country2) {
-      return 1;
-    }
-    return 0;
-  });
-  for (let i = 0; i < 10; i++) {
-    console.log('country', countries[i].name.common);
-  }
+// function showInfo(countries) {
+//   countries.sort((country1, country2) => {
+//     country1 = country1.name.common;
+//     country2 = country2.name.common;
+//     if (country1 < country2) {
+//       return -1;
+//     } else if (country1 > country2) {
+//       return 1;
+//     }
+//     return 0;
+//   });
+//   for (let i = 0; i < 10; i++) {
+//     console.log('country', countries[i].name.common);
+//   }
+// }
+
+// const b = [4, 5, 8, 9, 6, 3, 2];
+// b.sort((a, b) => a - b);
+// console.log('b', b);
+
+//-----------15. Fetch countries
+// let countries = ['USA', 'Ukraine', 'Great BritaIn', 'Italy', 'Spain', 'Greece'];
+
+// countries.sort();
+// countries.forEach(function (item) {
+//   let opt = document.createElement('option');
+//   opt.text = item;
+//   opt.value = item;
+//   slctCoiuntries.appendChild(opt);
+// });
+
+//-----------16. Some method for array
+// const nestedArray = [1, [2, 3], [4, [5, 6]]];
+
+// const flattened = nestedArray.flat(1);
+// console.log('flattened', flattened); //[1, 2, 3, 4, Array(2)]
+
+//-----------17.radio buttons
+// let radios = document.getElementsByName('color');
+
+// for (let i = 0; i < radios.length; i++) {
+//   radios[i].onclick = function () {
+//     let target = document.body;
+//     target.style.backgroundColor = radios[i].value;
+//   };
+// }
+
+// //-----------18. Задачі на JavaScript рекурсивна функція чисел Фібоначчі - числова послідовність, де кожне наступне число, починаючи з 3-го, == сумі двох попередніх
+
+// const fib = e => {
+//   if (e <= 1) {
+//     return e;
+//   } else {
+//     return fib(e - 1) + fib(e - 2);
+//   }
+// };
+// console.log('fib', fib(3));
+
+// 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610
+
+//-----------19 Числа привести до квадрату та додати
+// function squareSum(numbers) {
+//   let mas = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     let num = numbers[i] * numbers[i];
+//     mas.push(num);
+//     console.log('num', num);
+//   }
+//   let sum = mas.reduce((a, b) => a + b);
+//   console.log('sum', sum);
+// }
+
+// squareSum([2, 4]); // 20
+// squareSum([3, 4, 5]); // 50
+// squareSum([5, 6, 7]); // 110
+
+// function squareSum(numbers) {
+//   return numbers
+//     .map(item => (item *= item))
+//     .reduce((sum, counter) => sum + counter);
+// }
+// console.log(squareSum([2, 4])); // 20
+
+//-----------20 How To Solve This Apple Coding Interview Question With Recursion
+
+const str = 'hello';
+
+function solution(str) {
+  //base case
+  if (str.length === 0) return '';
+
+  //recursion
+  return str[str.length - 1] + solution(str.slice(0, str.length - 1));
 }
-
-const b = [4, 5, 8, 9, 6, 3, 2];
-b.sort((a, b) => a - b);
-console.log('b', b);
+console.log(solution(str));
