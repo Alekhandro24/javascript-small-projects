@@ -429,33 +429,33 @@ const eve = new Person('Eve', 18);
 //   slctCoiuntries.appendChild(opt);
 // });
 
-//-----------15.1 => JS filtering in an api response with textbox
-fetch('https://jsonplaceholder.typicode.com/users')
-  .then(res => res.json())
-  .then(users => showUsers(users));
+// //-----------15.1 => JS filtering in an api response with textbox
+// fetch('https://jsonplaceholder.typicode.com/users')
+//   .then(res => res.json())
+//   .then(users => showUsers(users));
 
-function showUsers(users) {
-  const ul = document.createElement('ul');
-  for (let user of users) {
-    const li = document.createElement('li');
-    li.innerText = user.name;
-    ul.appendChild(li);
-  }
-  result.appendChild(ul);
-}
-textBox.oninput = filterUsers;
+// function showUsers(users) {
+//   const ul = document.createElement('ul');
+//   for (let user of users) {
+//     const li = document.createElement('li');
+//     li.innerText = user.name;
+//     ul.appendChild(li);
+//   }
+//   result.appendChild(ul);
+// }
+// textBox.oninput = filterUsers;
 
-function filterUsers() {
-  const liElements = document.querySelectorAll('li');
-  for (let li of liElements) {
-    const currentName = li.innerText.toLowerCase();
-    const searchText = this.value.toLowerCase();
+// function filterUsers() {
+//   const liElements = document.querySelectorAll('li');
+//   for (let li of liElements) {
+//     const currentName = li.innerText.toLowerCase();
+//     const searchText = this.value.toLowerCase();
 
-    if (!currentName.includes(searchText)) {
-      li.setAttribute('hidden', true);
-    } else li.removeAttribute('hidden');
-  }
-}
+//     if (!currentName.includes(searchText)) {
+//       li.setAttribute('hidden', true);
+//     } else li.removeAttribute('hidden');
+//   }
+// }
 
 //-----------16. Some method for array
 // const nestedArray = [1, [2, 3], [4, [5, 6]]];
@@ -687,3 +687,73 @@ function filterUsers() {
 
 // adc.fill('4', 0, 3); //from 0 until 3
 // console.log('adc', adc); // ['4', '4', '4', '5', '6']
+
+//-----------23
+// let month = 1;
+
+// switch (month) {
+//   case 1:
+//   case 2:
+//   case 12:
+//     console.log('Winter');
+//     break;
+//   case 3:
+//   case 4:
+//   case 5:
+//     console.log('Spring');
+//     break;
+//   case 6:
+//   case 7:
+//   case 8:
+//     console.log('Summer');
+//     break;
+//   case 9:
+//   case 10:
+//   case 11:
+//     console.log('Autumn');
+//     break;
+
+//   default:
+//     console.log('error', error);
+// }
+
+//-----------24 Нові методи масивів в JavaScript
+const numbers = [5, 8, 1, 3, 4, 7, 9];
+
+//sort && toSorted
+//change
+// const sorted = numbers.sort((a, b) => a - b);
+// console.log('sorted', sorted); //[1, 3, 4, 5, 7, 8, 9]
+// console.log('numbers', numbers); //[1, 3, 4, 5, 7, 8, 9]
+
+//doesn't change original array
+// const sortedNumbers = numbers.toSorted((a, b) => a - b);
+// console.log('sortedNumbers', sortedNumbers);//[1, 3, 4, 5, 7, 8, 9]
+// console.log('numbers', numbers);//[5, 8, 1, 3, 4, 7, 9]
+
+//revers && toReversed
+//change
+// const reversed = numbers.reverse();
+// console.log('reversed', reversed); //[9, 7, 4, 3, 1, 8, 5]
+// console.log('numbers', numbers); //[9, 7, 4, 3, 1, 8, 5]
+
+//doesn't change original array
+// const reversedNumbers = numbers.toReversed();
+// console.log('reversedNumbers', reversedNumbers);//[9, 7, 4, 3, 1, 8, 5]
+// console.log('numbers', numbers);//[5, 8, 1, 3, 4, 7, 9]
+
+//splice && toSpliced
+//change
+// const spliced = numbers.splice(2, 2);
+// console.log('spliced', spliced); //[1, 3]
+// console.log('numbers', numbers); //[5, 8, 4, 7, 9]
+
+//doesn't change original array
+// const splicedNumbers = numbers.toSpliced(2, 2);
+// console.log('splicedNumbers', splicedNumbers); //[5, 8, 4, 7, 9]
+// console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
+
+//with
+const replaceWithNumbers = numbers.with(3, 6);
+console.log('replaceWithNumbers', replaceWithNumbers); //[5, 8, 1, 6, 4, 7, 9]
+console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
