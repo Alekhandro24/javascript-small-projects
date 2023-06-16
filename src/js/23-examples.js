@@ -429,6 +429,34 @@ const eve = new Person('Eve', 18);
 //   slctCoiuntries.appendChild(opt);
 // });
 
+//-----------15.1 => JS filtering in an api response with textbox
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(res => res.json())
+  .then(users => showUsers(users));
+
+function showUsers(users) {
+  const ul = document.createElement('ul');
+  for (let user of users) {
+    const li = document.createElement('li');
+    li.innerText = user.name;
+    ul.appendChild(li);
+  }
+  result.appendChild(ul);
+}
+textBox.oninput = filterUsers;
+
+function filterUsers() {
+  const liElements = document.querySelectorAll('li');
+  for (let li of liElements) {
+    const currentName = li.innerText.toLowerCase();
+    const searchText = this.value.toLowerCase();
+
+    if (!currentName.includes(searchText)) {
+      li.setAttribute('hidden', true);
+    } else li.removeAttribute('hidden');
+  }
+}
+
 //-----------16. Some method for array
 // const nestedArray = [1, [2, 3], [4, [5, 6]]];
 
@@ -495,35 +523,167 @@ const eve = new Person('Eve', 18);
 // console.log(solution(str));
 
 //-----------21
-let species = ['Animals', 'Vegetables'];
-let animals = ['Lion', 'Cow', 'Horse', 'Turtle'];
-let vegetables = ['Cucumber', 'Pukin', 'Potato', 'Tomato'];
+// let species = ['Animals', 'Vegetables'];
+// let animals = ['Lion', 'Cow', 'Horse', 'Turtle'];
+// let vegetables = ['Cucumber', 'Pukin', 'Potato', 'Tomato'];
 
-let slct1 = document.getElementById('slct1');
-let slct2 = document.getElementById('slct2');
+// let slct1 = document.getElementById('slct1');
+// let slct2 = document.getElementById('slct2');
 
-species.forEach(function addSpecies(item) {
-  let option = document.createElement('option');
-  option.text = item;
-  option.value = item;
-  slct1.appendChild(option);
-});
+// species.forEach(function addSpecies(item) {
+//   let option = document.createElement('option');
+//   option.text = item;
+//   option.value = item;
+//   slct1.appendChild(option);
+// });
 
-slct1.onchange = function () {
-  slct2.innerHTML = '<option></option>';
-  if (this.value === 'Animals') {
-    addToSlct2(animals);
-  }
-  if (this.value === 'Vegetables') {
-    addToSlct2(vegetables);
-  }
-};
+// slct1.onchange = function () {
+//   slct2.innerHTML = '<option></option>';
+//   if (this.value === 'Animals') {
+//     addToSlct2(animals);
+//   }
+//   if (this.value === 'Vegetables') {
+//     addToSlct2(vegetables);
+//   }
+// };
 
-function addToSlct2(arr) {
-  arr.forEach(function (item) {
-    let option = document.createElement('option');
-    option.text = item;
-    option.text = item;
-    slct2.appendChild(option);
-  });
-}
+// function addToSlct2(arr) {
+//   arr.forEach(function (item) {
+//     let option = document.createElement('option');
+//     option.text = item;
+//     option.text = item;
+//     slct2.appendChild(option);
+//   });
+// }
+
+//-----------22 Object
+//Partial Shallow Copy, Shallow Copy, Deep Copy
+
+// const person = {
+//   name: 'Adam',
+//   friends: ['Can', 'Atin'],
+// };
+
+// //Shallow Copy
+// const sc = person;
+// console.log('sc', sc);
+
+// //Partial Shallow Copy
+// const psc = { ...person };
+// console.log('psc', psc);
+
+// // Deep Copy
+// dc = JSON.parse(JSON.stringify(person));
+// console.log('dc', dc);
+
+// //testing
+
+// person.name = 'Buscan';
+// console.log('person.name', person.name); //person.name Buscan
+// console.log('sc.name', sc.name); //sc.name Buscan
+// console.log('psc.name', psc.name); //psc.name Adam
+// console.log('dc.name', dc.name); //dc.name Adam
+
+// person.friends.push('Ali');
+// console.log('person.friends', person.friends); //['Can', 'Atin', 'Ali']
+// console.log('sc.friends', sc.friends); //['Can', 'Atin', 'Ali']
+// console.log('psc.friends', psc.friends); //['Can', 'Atin', 'Ali']
+// console.log('dc.friends', dc.friends); //['Can', 'Atin']
+
+////*---2  const a = {
+//   test: { t: '11' },
+// };
+
+// const b = structuredClone(a);
+// b.test.t = '22';
+// console.log('a', a.test.t);
+// console.log('b', b.test.t);
+
+////*---3
+//shallow copy object
+
+// const object = { name: 'Ali' };
+// const newObject = object;
+// object.name = 'Eva';
+// console.log('object', object); // {name: 'Eva'}
+// console.log('newObject', newObject); //{name: 'Eva'}
+
+// //deep object
+// const obj = { name: 'Anna', surname: 'Evalin' };
+// const newObj = { ...obj };
+// obj.name = 'Eva';
+// console.log('obj', obj); // {name: 'Eva', surname: 'Evalin'}
+// console.log('newObj', newObj); //{name: 'Anna', surname: 'Evalin'}
+
+// obj.lastname = 'Clarson';
+// console.log('obj', obj); //{name: 'Eva', surname: 'Evalin', lastname: 'Clarson'}
+// console.log('newObj', newObj); //{name: 'Anna', surname: 'Evalin'}
+
+////*---4 array
+//shallow copy
+// const array = ['Adam'];
+// const newArray = array;
+// array[0] = 'Eva';
+// console.log('array', array); //['Eva']
+// console.log('newArray', newArray); //['Eva']
+
+// //deep
+// const arr = ['Adam'];
+// const newArr = [...arr];
+// arr[0] = 'Eva';
+// arr.push('Lin');
+// console.log('arr', arr); //['Eva', 'Lin'];
+// console.log('newArr', newArr); //['Adam'];
+
+// -----------
+// const animal = ['1', '2', '3'];
+// const copy = animal.slice();
+// copy.fill('7');
+// console.log('copy', copy); //['7', '7', '7']
+// console.log('animal', animal); // ['1', '2', '3']
+
+// copy.push('9');
+// console.log('copy', copy); //['7', '7', '7', '9']
+// console.log('animal', animal); // ['1', '2', '3']
+
+// const wrongCopy = animal;
+// wrongCopy.fill('8');
+// console.log('wrongCopy', wrongCopy); // ['8', '8', '8']
+// console.log('animals', animal); // ['8', '8', '8']
+
+// ------- copyWithin =>  target, start, end
+// const e = ['7', '7', '9', '8', '10', '10', '11', '11'];
+// e.copyWithin(0, 2, 4);
+// //target, start => (until)end
+// console.log('e', e); //['9', '8', '9', '8', '10', '10', '11', '11']
+
+// const flo = ['1', '2', '3', '4'];
+// // flo.copyWithin(1, 0);
+// // // copy index 0 to index 1
+// // console.log('flo', flo); //['1', '1', '2'];
+
+// // flo.copyWithin(2, 0);
+// // //copy index 0 to index 2
+// // console.log('flo', flo); // ['1', '2', '1', '2']
+
+// flo.copyWithin(0, 2, 4);
+// console.log('flo', flo); //['3', '4', '3', '4']
+
+// ------- with
+// const bc = ['1', '2', '3'];
+// //indexes    0    1    2
+// const ad = bc.with(1, '4');
+// console.log('bc', bc);
+// console.log('ad', ad);
+
+// ------- fill => value,start,end
+// const adc = ['1', '2', '3', '5', '6'];
+// //indexes     0    1    2
+// adc.fill('4');
+// console.log('adc', adc); // ['4', '4', '4', '4', '4']
+
+// adc.fill('4', 1); //from index 1
+// console.log('adc', adc); // ['1', '4', '4', '4', '4']
+
+// adc.fill('4', 0, 3); //from 0 until 3
+// console.log('adc', adc); // ['4', '4', '4', '5', '6']
