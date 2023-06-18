@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+  background-color: rgb(46, 48, 71);
+}
+
+.wrapper {
+  min-height: 100%;
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+
+  /* grid
+  display: grid;
+  grid-template-rows: auto 1fr auto; */
+}
+
+.head,
+.main,
+.footer {
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.head {
+  background-color: rgba(61, 61, 219);
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.footer {
+  background-color: red;
+}
