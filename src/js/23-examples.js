@@ -754,6 +754,9 @@ const numbers = [5, 8, 1, 3, 4, 7, 9];
 // console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
 
 //with
-const replaceWithNumbers = numbers.with(3, 6);
-console.log('replaceWithNumbers', replaceWithNumbers); //[5, 8, 1, 6, 4, 7, 9]
-console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
+// const replaceWithNumbers = numbers.with(3, 6);
+// console.log('replaceWithNumbers', replaceWithNumbers); //[5, 8, 1, 6, 4, 7, 9]
+// console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
+
+
+//-----------25 футер завжди знизу сторінки
