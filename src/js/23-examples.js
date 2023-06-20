@@ -457,6 +457,9 @@ const eve = new Person('Eve', 18);
 //   }
 // }
 
+// //-----------15.1
+// etfrewr
+
 //-----------16. Some method for array
 // const nestedArray = [1, [2, 3], [4, [5, 6]]];
 
@@ -472,6 +475,27 @@ const eve = new Person('Eve', 18);
 //     target.style.backgroundColor = radios[i].value;
 //   };
 // }
+
+//-----------17.1
+// const people = document.getElementById('people');
+// const choosenPeople = document.getElementById('choosenPeople');
+
+// people.addEventListener('click', changeTextBoxText);
+
+// function changeTextBoxText() {
+//   choosenPeople.value = this.value;
+// }
+
+//-----------17.2
+const countries = document.getElementById('countries');
+const countryCapital = document.getElementById('capital');
+
+countries.addEventListener('click', choosenCountryCapital);
+
+function choosenCountryCapital() {
+  // countryCapital.value = this.value;
+  countryCapital.value = countries.value;
+}
 
 // //-----------18. Задачі на JavaScript рекурсивна функція чисел Фібоначчі - числова послідовність, де кожне наступне число, починаючи з 3-го, == сумі двох попередніх
 
@@ -718,7 +742,7 @@ const eve = new Person('Eve', 18);
 // }
 
 //-----------24 Нові методи масивів в JavaScript
-const numbers = [5, 8, 1, 3, 4, 7, 9];
+// const numbers = [5, 8, 1, 3, 4, 7, 9];
 
 //sort && toSorted
 //change
@@ -758,5 +782,97 @@ const numbers = [5, 8, 1, 3, 4, 7, 9];
 // console.log('replaceWithNumbers', replaceWithNumbers); //[5, 8, 1, 6, 4, 7, 9]
 // console.log('numbers', numbers); //[5, 8, 1, 3, 4, 7, 9]
 
-
 //-----------25 футер завжди знизу сторінки
+
+//-----------26. Interview Question
+// const nums = [2, 7, 11, 15];
+// const target = 9;
+
+// function solution(nums, target) {
+//   let map = new Map();
+//   console.log('Map ', Map);
+
+//   for (let i = 0; i < nums.length; i++) {
+//     let compliment = target - nums[i];
+//     console.log('compliment ', compliment);
+
+//     if (map.has(compliment)) {
+//       console.log('i ', i);
+//       console.log('compliment ', compliment);
+//       return [i, map.get(compliment)];
+//     } else {
+//       map.set(nums[i], i);
+//       console.log('nums[i] ', nums[i]);
+//     }
+//   }
+// }
+
+// console.log(solution(nums, target));
+
+//-----------27.Generate & Download QR Code in HTML and JavaScript
+// const input = document.querySelector('input');
+// const qrImage = document.querySelector('img');
+// const generateBtn = document.querySelector('#generate');
+// const downloadBtn = document.querySelector('#download');
+
+// generateBtn.addEventListener('click', () => {
+//   const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${input.value}`;
+//   qrImage.src = qrCode;
+// });
+
+// downloadBtn.addEventListener('click', async () => {
+//   const res = await fetch(qrImage.src);
+//   const blob = await res.blob();
+//   const downloadLink = document.createElement('a');
+//   downloadLink.href = URL.createObjectURL(blob);
+//   downloadLink.download = 'qrcode.jpg';
+//   downloadLink.click();
+// });
+
+//-----------28 Проєктуємо2-ч вимірний масив в html сторінку
+// let gameZona = document.querySelector('.gameZone');
+
+// let mas = [
+//   [1, 1, 1, 1, 1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1, 1, 1, 1, 1],
+// ];
+
+// for (let x = 0; x < mas.length; x++) {
+//   for (let y = 0; y < mas[x].length; y++) {
+//     if (mas[x][y] === 1) {
+//       mas[x][y] = document.createElement('div');
+//       mas[x][y].classList.add('brick');
+//     }
+//     if (mas[x][y] === 0) {
+//       mas[x][y] = document.createElement('div');
+//       mas[x][y].classList.add('brick2');
+//     }
+//     gameZona.appendChild(mas[x][y]);
+//   }
+// }
+
+//-----------28 Pick Color From Image in JavaScript
+// const button = document.querySelector('button');
+
+// const pickColor = async () => {
+//   const eyeDropper = new EyeDropper();
+
+//   const { sRGBHex } = await eyeDropper.open();
+//   console.log('sRGBHex ', sRGBHex);
+// };
+
+// button.addEventListener('click', pickColor);
+
+//-----------29 Є - ціна на цукерки(1кг). Вивести вартість 2,3 до 10кг цукерок
+
+// const bonBon = document.querySelector('.bonBon');
+
+// let cost = 200;
+
+// for (let i = 1; i <= 10; i++) {
+//   console.log('cost*i', cost * i);
+//   let bonDiv = document.createElement('p');
+//   bonDiv.textContent = `Ціна за ${i} кг цукерок = ${cost * i} грн`;
+//   bonBon.appendChild(bonDiv);
+// }
