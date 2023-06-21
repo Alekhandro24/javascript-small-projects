@@ -876,3 +876,140 @@ function choosenCountryCapital() {
 //   bonDiv.textContent = `Ціна за ${i} кг цукерок = ${cost * i} грн`;
 //   bonBon.appendChild(bonDiv);
 // }
+
+//-------------30 Mastering JavaScript Set - add, delete, check the present of elements
+//1.
+// const data = new Set();
+// for (let i = 0; i < 9999; i++) {
+//   data.add('A');
+// }
+
+// data.add(45);
+
+// console.log('data.size: ', data.size);
+// console.log('data: ', data);
+
+//2. adding element
+// const fruits = new Set();
+// fruits.add('apple');
+// console.log('fruits: ', fruits); //fruits:  Set(1) {'apple'}
+// fruits.add('melon');
+// console.log('fruits: ', fruits); //fruits:  Set(2) {'apple', 'melon'}
+
+//3.deleting element
+// const cars = new Set(['Porche', 'Mazda']);
+// console.log('cars: ', cars);
+// cars.delete('Mazda');
+// console.log('cars: ', cars);
+// cars.delete('Porche');
+// console.log('cars: ', cars); // Set(0) {size: 0}
+
+//4. cheking if a value exist in the Set
+// const cars = new Set(['Porche', 'Mazda', 'Toyota']);
+// console.log('cars', cars.has('Porche'));
+// console.log('cars', cars.has('Toyota'));
+// console.log('cars', cars.has('Nissan'));
+
+//5. iterating over the elements of Set
+// const cars = new Set(['Porche', 'Mazda', 'Toyota']);
+// for (const car of cars) {
+//   console.log('car-for', car);
+// }
+
+// cars.forEach(car => {
+//   console.log('car-forEach', car);
+// });
+
+//6. remove duplicates from an Array with the Spread Operator and Set
+// const arr = [1, 1, 5, 4, 2, 6, 5];
+// // const uniqueArr = new Set(arr);
+// // console.log('uniqueArr: ', uniqueArr);//Set(5) {1, 5, 4, 2, 6} object
+// const uniqueArr = [...new Set(arr)];
+// console.log('uniqueArr: ', uniqueArr); //[1, 5, 4, 2, 6] Array
+
+//7. ...spread and Set
+// const a = [1, 2, 1];
+// const b = [2, 1, 2];
+// const c = [...a, ...b];
+// console.log('c: ', c); //////[1, 2, 1, 2, 1, 2]
+// const d = [...new Set(c)];
+// console.log('d: ', d); //////[1, 2];
+// const e = [...new Set(a), ...new Set(b)];
+// console.log('e: ', e); //////[ [1, 2, 2, 1]
+// const f = [...new Set(a, b)];
+// console.log('f: ', f); //////[ [1, 2]
+
+//8. Set stores only unique elements
+// const cars = new Set();
+// cars.add('Mazda');
+// console.log('cars: ', cars); //Set(1) {'Mazda'}
+// cars.add('Porche');
+// console.log('cars: ', cars); //Set(2) {'Mazda', 'Porche'}
+// cars.add('Porche');
+// console.log('cars: ', cars); //Set(2) {'Mazda', 'Porche'}
+
+//9. length of array & size of a Set
+// const a = ['A', 'B', 'B'];
+// console.log('a.length: ', a.length); //a.length:  3
+
+// const b = new Set(a);
+// console.log('b.size: ', b.size); //b.size:  2
+
+// const c = new Set(['A', 'B', 'B']);
+// console.log('c.size: ', c.size); //c.size:  2
+
+// //-------------31 INCLUDES mas.includes(98 - що шукаємо, 4 - з якого індекса)
+// const mas = [1, 3, 4, 98, 37, 44];
+// console.log(mas.includes(98)); //true
+// console.log(mas.includes(98, 4)); //false
+
+//-------------32 group anagrams together
+
+const groupAnagrams = function (strs) {
+  let ordered = strs.map(str => str.split('').sort().join(''));
+
+  let map = {};
+
+  for (let i = 0; i < strs.length; i++) {
+    if (!map[ordered[i]]) {
+      map[ordered[i]] = [strs[i]];
+    } else {
+      map[ordered[i]].push[strs[i]];
+      console.log('first', ordered[i]);
+      console.log('second', strs[i]);
+    }
+  }
+
+  return Object.values(map);
+};
+
+// ----str.split(''));
+// (3) ['e', 'a', 't']
+// (3) ['t', 'e', 'a']
+// (3) ['t', 'a', 'n']
+// (3) ['a', 't', 'e']
+// (3) ['n', 'a', 't']
+// (3) ['b', 'a', 't']
+// ----- str.split('').sort())
+// (3) ['a', 'e', 't']
+// (3) ['a', 'e', 't']
+// (3) ['a', 'n', 't']
+// (3) ['a', 'e', 't']
+// (3) ['a', 'n', 't']
+// (3) ['a', 'b', 't']
+// ---- str.split('').sort().join(''))
+// ['aet', 'aet', 'ant', 'aet', 'ant', 'abt']
+
+let input = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
+let output = groupAnagrams(input);
+console.log('output:', output); // [["eat", "tea","ate"]][["tan,"nat""]][["bat"]]
+
+// ['eat']
+// ['tan']
+// ['bat']
+
+// let input2 = ['listen', 'silent', 'elbow', 'below', 'car', 'arc'];
+// let output2 = groupAnagrams(input2);
+// console.log('output:', output2); // [["listen", "silent"]][["elbow,"below""]][[ "car","arc"]]
+
+////
