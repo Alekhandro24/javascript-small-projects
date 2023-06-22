@@ -457,8 +457,41 @@ const eve = new Person('Eve', 18);
 //   }
 // }
 
-// //-----------15.1
-// etfrewr
+// //-----------15.2
+const fetchUsersBtn = document.querySelector('.btn');
+const userList = document.querySelector('.user-list');
+
+fetchUsersBtn.addEventListener('click', () => {
+  fetchUsers()
+    .then(users => renderUserList(users))
+    .catch(error => console.log(error));
+});
+
+function fetchUsers() {
+  return fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+}
+
+function renderUserList(users) {
+  const markup = users
+    .map(user => {
+      return `<li>
+          <p><b>Name</b>: ${user.name}</p>
+          <p><b>Email</b>: ${user.email}</p>
+          <p><b>Company</b>: ${user.company.name}</p>
+          <p ><b>Phone</b>: ${user.phone}</p>
+        </li>`;
+    })
+    .join('');
+  userList.innerHTML = markup;
+  userList.style.padding = '24px';
+  userList.style.gap = '25px';
+  userList.style.backgroundColor = '#fff';
+}
 
 //-----------16. Some method for array
 // const nestedArray = [1, [2, 3], [4, [5, 6]]];
@@ -965,51 +998,51 @@ function choosenCountryCapital() {
 
 //-------------32 group anagrams together
 
-const groupAnagrams = function (strs) {
-  let ordered = strs.map(str => str.split('').sort().join(''));
+// const groupAnagrams = function (strs) {
+//   let ordered = strs.map(str => str.split('').sort().join(''));
 
-  let map = {};
+//   let map = {};
 
-  for (let i = 0; i < strs.length; i++) {
-    if (!map[ordered[i]]) {
-      map[ordered[i]] = [strs[i]];
-    } else {
-      map[ordered[i]].push[strs[i]];
-      console.log('first', ordered[i]);
-      console.log('second', strs[i]);
-    }
-  }
+//   for (let i = 0; i < strs.length; i++) {
+//     if (!map[ordered[i]]) {
+//       map[ordered[i]] = [strs[i]];
+//     } else {
+//       map[ordered[i]].push[strs[i]];
+//       console.log('first', ordered[i]);
+//       console.log('second', strs[i]);
+//     }
+//   }
 
-  return Object.values(map);
-};
+//   return Object.values(map);
+// };
 
-// ----str.split(''));
-// (3) ['e', 'a', 't']
-// (3) ['t', 'e', 'a']
-// (3) ['t', 'a', 'n']
-// (3) ['a', 't', 'e']
-// (3) ['n', 'a', 't']
-// (3) ['b', 'a', 't']
-// ----- str.split('').sort())
-// (3) ['a', 'e', 't']
-// (3) ['a', 'e', 't']
-// (3) ['a', 'n', 't']
-// (3) ['a', 'e', 't']
-// (3) ['a', 'n', 't']
-// (3) ['a', 'b', 't']
-// ---- str.split('').sort().join(''))
-// ['aet', 'aet', 'ant', 'aet', 'ant', 'abt']
+// // ----str.split(''));
+// // (3) ['e', 'a', 't']
+// // (3) ['t', 'e', 'a']
+// // (3) ['t', 'a', 'n']
+// // (3) ['a', 't', 'e']
+// // (3) ['n', 'a', 't']
+// // (3) ['b', 'a', 't']
+// // ----- str.split('').sort())
+// // (3) ['a', 'e', 't']
+// // (3) ['a', 'e', 't']
+// // (3) ['a', 'n', 't']
+// // (3) ['a', 'e', 't']
+// // (3) ['a', 'n', 't']
+// // (3) ['a', 'b', 't']
+// // ---- str.split('').sort().join(''))
+// // ['aet', 'aet', 'ant', 'aet', 'ant', 'abt']
 
-let input = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
-let output = groupAnagrams(input);
-console.log('output:', output); // [["eat", "tea","ate"]][["tan,"nat""]][["bat"]]
+// let input = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
+// let output = groupAnagrams(input);
+// console.log('output:', output); // [["eat", "tea","ate"]][["tan,"nat""]][["bat"]]
 
-// ['eat']
-// ['tan']
-// ['bat']
+// // ['eat']
+// // ['tan']
+// // ['bat']
 
-// let input2 = ['listen', 'silent', 'elbow', 'below', 'car', 'arc'];
-// let output2 = groupAnagrams(input2);
-// console.log('output:', output2); // [["listen", "silent"]][["elbow,"below""]][[ "car","arc"]]
+// // let input2 = ['listen', 'silent', 'elbow', 'below', 'car', 'arc'];
+// // let output2 = groupAnagrams(input2);
+// // console.log('output:', output2); // [["listen", "silent"]][["elbow,"below""]][[ "car","arc"]]
 
 ////
