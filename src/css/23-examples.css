@@ -56,3 +56,13 @@ body {
   width: 51.6px;
   height: 31.6px;
 }
+
+/* //15.2 */
+.user-list {
+  margin: 0;
+  list-style: none;
+}
+
+.user-list li:not(:last-child) {
+  margin-bottom: 40px;
+}
