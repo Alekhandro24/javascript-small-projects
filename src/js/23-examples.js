@@ -1045,4 +1045,19 @@ function choosenCountryCapital() {
 // // let output2 = groupAnagrams(input2);
 // // console.log('output:', output2); // [["listen", "silent"]][["elbow,"below""]][[ "car","arc"]]
 
+//-------------33
+
+// for(let i=0; i< 100; i++){
+//     if(i % 3 === 0 && i % 5 === 0){
+//         console.log("fizzbizz")
+//     };
+//     if(i % 3 === 0){console.log("fizz");}
+//         if(i % 5 === 0){
+//             console.log("bizz")
+//         }else{
+//             console.log(i)
+//         }
+
+// };
+
 ////
