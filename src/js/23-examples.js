@@ -458,40 +458,40 @@ const eve = new Person('Eve', 18);
 // }
 
 // //-----------15.2
-const fetchUsersBtn = document.querySelector('.btn');
-const userList = document.querySelector('.user-list');
+// const fetchUsersBtn = document.querySelector('.btn');
+// const userList = document.querySelector('.user-list');
 
-fetchUsersBtn.addEventListener('click', () => {
-  fetchUsers()
-    .then(users => renderUserList(users))
-    .catch(error => console.log(error));
-});
+// fetchUsersBtn.addEventListener('click', () => {
+//   fetchUsers()
+//     .then(users => renderUserList(users))
+//     .catch(error => console.log(error));
+// });
 
-function fetchUsers() {
-  return fetch('https://jsonplaceholder.typicode.com/users').then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
-}
+// function fetchUsers() {
+//   return fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     return response.json();
+//   });
+// }
 
-function renderUserList(users) {
-  const markup = users
-    .map(user => {
-      return `<li>
-          <p><b>Name</b>: ${user.name}</p>
-          <p><b>Email</b>: ${user.email}</p>
-          <p><b>Company</b>: ${user.company.name}</p>
-          <p ><b>Phone</b>: ${user.phone}</p>
-        </li>`;
-    })
-    .join('');
-  userList.innerHTML = markup;
-  userList.style.padding = '24px';
-  userList.style.gap = '25px';
-  userList.style.backgroundColor = '#fff';
-}
+// function renderUserList(users) {
+//   const markup = users
+//     .map(user => {
+//       return `<li>
+//           <p><b>Name</b>: ${user.name}</p>
+//           <p><b>Email</b>: ${user.email}</p>
+//           <p><b>Company</b>: ${user.company.name}</p>
+//           <p ><b>Phone</b>: ${user.phone}</p>
+//         </li>`;
+//     })
+//     .join('');
+//   userList.innerHTML = markup;
+//   userList.style.padding = '24px';
+//   userList.style.gap = '25px';
+//   userList.style.backgroundColor = '#fff';
+// }
 
 //-----------16. Some method for array
 // const nestedArray = [1, [2, 3], [4, [5, 6]]];
@@ -520,15 +520,15 @@ function renderUserList(users) {
 // }
 
 //-----------17.2
-const countries = document.getElementById('countries');
-const countryCapital = document.getElementById('capital');
+// const countries = document.getElementById('countries');
+// const countryCapital = document.getElementById('capital');
 
-countries.addEventListener('click', choosenCountryCapital);
+// countries.addEventListener('click', choosenCountryCapital);
 
-function choosenCountryCapital() {
-  // countryCapital.value = this.value;
-  countryCapital.value = countries.value;
-}
+// function choosenCountryCapital() {
+//   // countryCapital.value = this.value;
+//   countryCapital.value = countries.value;
+// }
 
 // //-----------18. Задачі на JavaScript рекурсивна функція чисел Фібоначчі - числова послідовність, де кожне наступне число, починаючи з 3-го, == сумі двох попередніх
 
@@ -1057,7 +1057,38 @@ function choosenCountryCapital() {
 //         }else{
 //             console.log(i)
 //         }
-
 // };
 
-////
+//-------------34 Є 2 числа, вивести порядковий номер найменшого з них
+
+// let a = [50, 10];
+
+// if (a[0] < a[1]) {
+//   console.log('0');
+// } else {
+//   console.log('1');
+// }
+
+//-------------35 How to Reverse a String
+// const c = 'Cool';
+// const r = c.split('').reverse().join('');
+// // const r = c.split('').reverse().join('').toLowerCase();
+// console.log('r: ', r);
+
+// const ab = 'cabin';
+// const ba = ab.split(''); //['c', 'a', 'b', 'i', 'n'];
+// const da = ba.reverse(); //['n', 'i', 'b', 'a', 'c']
+// const dc = da.join(''); //nibac
+
+//-------------36 Вивести суму 2-ч мін чисел
+let array = [3, 45, 84, 56, 1, 98, 20];
+
+function sumTwoSmallestNumbers(array) {
+  let ssr = array
+    .sort((a, b) => a - b)
+    .slice(0, 2)
+    .reduce((a, b) => a + b); // [1, 3, 20, 45, 56, 84, 98] / [1, 3] / 4
+  console.log('r: ', ssr);
+}
+sumTwoSmallestNumbers(array);
+///
