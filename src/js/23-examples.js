@@ -1081,14 +1081,107 @@ const eve = new Person('Eve', 18);
 // const dc = da.join(''); //nibac
 
 //-------------36 Вивести суму 2-ч мін чисел
-let array = [3, 45, 84, 56, 1, 98, 20];
+// let array = [3, 45, 84, 56, 1, 98, 20];
 
-function sumTwoSmallestNumbers(array) {
-  let ssr = array
-    .sort((a, b) => a - b)
-    .slice(0, 2)
-    .reduce((a, b) => a + b); // [1, 3, 20, 45, 56, 84, 98] / [1, 3] / 4
-  console.log('r: ', ssr);
+// function sumTwoSmallestNumbers(array) {
+//   let ssr = array
+//     .sort((a, b) => a - b)
+//     .slice(0, 2)
+//     .reduce((a, b) => a + b); // [1, 3, 20, 45, 56, 84, 98] / [1, 3] / 4
+//   console.log('r: ', ssr);
+// }
+// sumTwoSmallestNumbers(array);
+
+//-------------36 Описати процес PowerA3(A,B), яка вираховую число в кубі(A) та повертає її в змінній В(А - вхідний параметрб В - вихідний параметр)ю Знайти укб 5-ти будь-яких чисел
+
+// function PowerA3(a) {
+//   return a ** 3;
+// }
+
+// let numbers = [5, 9, 6, 1, 3];
+
+// for (let i = 0; i < numbers.length; i++) {
+//   console.log(`Число $numbers[i] в кубі =  ${PowerA3(numbers[i])}`);
+// }
+
+//-------------37
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getInfo() {
+    return `The name of animal is ${this.name} and age is ${this.age}`;
+  }
+
+  makeSound() {
+    return 'Some nice sound made';
+  }
 }
-sumTwoSmallestNumbers(array);
-///
+
+//--------instance from abstract class
+// class Animal {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//     if (this.constructor === Animal) {
+//       throw new Error("Can't create instance from abstract class");
+//     }
+//   }
+//   makeSound() {
+//     throw new Error("abstract method doesn't have an implementation");
+//   }
+// }
+
+//first instances
+const firstAnimal = new Animal('Rex', 21);
+console.log('firstAnimal: ', firstAnimal);
+console.log('firstAnimal: ', firstAnimal.getInfo());
+
+const secondAnimal = new Animal('Combo', 5);
+console.log('firstAnimal: ', secondAnimal);
+console.log('firstAnimal: ', secondAnimal.getInfo());
+
+//2
+class Dog extends Animal {
+  constructor(name, age, breed) {
+    super(name, age);
+    this.breed = breed;
+  }
+  makeSound() {
+    return 'woof';
+  }
+}
+
+class Cat extends Animal {
+  #weight;
+  constructor(name, age, weight) {
+    super(name, age);
+    this.#weight = weight;
+  }
+  getWeight() {
+    return this.#weight;
+  }
+
+  setWeight(weight) {
+    this.#weight = weight;
+  }
+
+  makeSound() {
+    return 'meow';
+  }
+}
+
+const myDog = new Dog('Reinold', 2, 'German Shepard');
+console.log(myDog.getInfo());
+console.log(myDog.breed);
+console.log(myDog.makeSound());
+
+const myCat = new Cat('Wikis', 4, '5kg');
+console.log(myCat.getWeight());
+myCat.setWeight('7kg');
+console.log(myCat.getWeight());
+console.log(myCat.makeSound());
+
+///////////////
