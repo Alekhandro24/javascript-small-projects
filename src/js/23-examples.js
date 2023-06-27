@@ -1105,20 +1105,20 @@ const eve = new Person('Eve', 18);
 // }
 
 //-------------37
-class Animal {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
+// class Animal {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
-  getInfo() {
-    return `The name of animal is ${this.name} and age is ${this.age}`;
-  }
+//   getInfo() {
+//     return `The name of animal is ${this.name} and age is ${this.age}`;
+//   }
 
-  makeSound() {
-    return 'Some nice sound made';
-  }
-}
+//   makeSound() {
+//     return 'Some nice sound made';
+//   }
+// }
 
 //--------instance from abstract class
 // class Animal {
@@ -1135,53 +1135,98 @@ class Animal {
 // }
 
 //first instances
-const firstAnimal = new Animal('Rex', 21);
-console.log('firstAnimal: ', firstAnimal);
-console.log('firstAnimal: ', firstAnimal.getInfo());
+// const firstAnimal = new Animal('Rex', 21);
+// console.log('firstAnimal: ', firstAnimal);
+// console.log('firstAnimal: ', firstAnimal.getInfo());
 
-const secondAnimal = new Animal('Combo', 5);
-console.log('firstAnimal: ', secondAnimal);
-console.log('firstAnimal: ', secondAnimal.getInfo());
+// const secondAnimal = new Animal('Combo', 5);
+// console.log('firstAnimal: ', secondAnimal);
+// console.log('firstAnimal: ', secondAnimal.getInfo());
 
-//2
-class Dog extends Animal {
-  constructor(name, age, breed) {
-    super(name, age);
-    this.breed = breed;
+// //2
+// class Dog extends Animal {
+//   constructor(name, age, breed) {
+//     super(name, age);
+//     this.breed = breed;
+//   }
+//   makeSound() {
+//     return 'woof';
+//   }
+// }
+
+// class Cat extends Animal {
+//   #weight;
+//   constructor(name, age, weight) {
+//     super(name, age);
+//     this.#weight = weight;
+//   }
+//   getWeight() {
+//     return this.#weight;
+//   }
+
+//   setWeight(weight) {
+//     this.#weight = weight;
+//   }
+
+//   makeSound() {
+//     return 'meow';
+//   }
+// }
+
+// const myDog = new Dog('Reinold', 2, 'German Shepard');
+// console.log(myDog.getInfo());
+// console.log(myDog.breed);
+// console.log(myDog.makeSound());
+
+// const myCat = new Cat('Wikis', 4, '5kg');
+// console.log(myCat.getWeight());
+// myCat.setWeight('7kg');
+// console.log(myCat.getWeight());
+// console.log(myCat.makeSound());
+
+//-------------38 Є 1 кг цукерок. Знайти вартість 0.1 кг, 02кг до 1 кг.
+
+// let cost = 300;
+
+// for (let i = 0.1; i < 1; i += 0.1) {
+//   console.log(Math.round(cost * i));
+// }
+
+//-------------38 Get Exact User Location
+// const btn = document.querySelector('button');
+
+// btn.addEventListener('click', () => {
+//   navigator.geolocation.getCurrentPosition(position => {
+//     const { latitude, longitude } = position.coords;
+//     const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+//     fetch(url)
+//       .then(res => res.json())
+//       .then(data => {
+//         console.table(data.address);
+//       })
+//       .catch(() => {
+//         console.log('Error fetching data from API');
+//       });
+//   });
+// });
+
+// ---------39 сортування бульбашкою
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
+    }
   }
-  makeSound() {
-    return 'woof';
-  }
+  console.log('arr', arr);
 }
 
-class Cat extends Animal {
-  #weight;
-  constructor(name, age, weight) {
-    super(name, age);
-    this.#weight = weight;
-  }
-  getWeight() {
-    return this.#weight;
-  }
-
-  setWeight(weight) {
-    this.#weight = weight;
-  }
-
-  makeSound() {
-    return 'meow';
-  }
-}
-
-const myDog = new Dog('Reinold', 2, 'German Shepard');
-console.log(myDog.getInfo());
-console.log(myDog.breed);
-console.log(myDog.makeSound());
-
-const myCat = new Cat('Wikis', 4, '5kg');
-console.log(myCat.getWeight());
-myCat.setWeight('7kg');
-console.log(myCat.getWeight());
-console.log(myCat.makeSound());
+const test = [33, 1, 15, 122, 5, 245, 65, 90, 23];
+bubbleSort(test);
 
 ///////////////
