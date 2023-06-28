@@ -1213,20 +1213,46 @@ const eve = new Person('Eve', 18);
 
 // ---------39 сортування бульбашкою
 
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
-        const tmp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = tmp;
-      }
-    }
-  }
-  console.log('arr', arr);
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length - 1 - i; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         const tmp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = tmp;
+//       }
+//     }
+//   }
+//   console.log('arr', arr);
+// }
+
+// const test = [33, 1, 15, 122, 5, 245, 65, 90, 23];
+// bubbleSort(test);
+
+// ---------40 Замикання
+// функція = код функції + доступні данні!!!
+let a = 0;
+
+function count() {
+  a++;
+  console.log('a', a);
 }
 
-const test = [33, 1, 15, 122, 5, 245, 65, 90, 23];
-bubbleSort(test);
+count();
+count();
+count();
+count();
+count();
 
-///////////////
+function cs2() {
+  let c = 0;
+  return () => ++c; // Возвращает функцию-констант
+  console.log('c', c);
+}
+
+let d = cs2(); /// d - функція
+console.log('d-1', d());
+console.log('d-2', d());
+console.log('d-3', d());
+
+////////////
