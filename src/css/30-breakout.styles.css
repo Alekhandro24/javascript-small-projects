@@ -1,0 +1,38 @@
+.grid {
+  position: absolute;
+  width: 560px;
+  height: 300px;
+  border: solid 1px black;
+}
+
+.block {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-color: blue;
+}
+
+.user {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-color: purple;
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+/*------- btn-back ------*/
+
+.btn-back {
+  margin-bottom: 15px;
+}
+
+.btn-back:hover {
+  background-color: red;
+}
